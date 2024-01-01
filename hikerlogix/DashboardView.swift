@@ -27,7 +27,7 @@ struct DashboardView: View {
                 Section(header: Text("Recent Hikes")) {
                     List {
                         ForEach(hikeLogs) { log in
-                            NavigationLink(destination: HikeLogDetailView(hikeLog: log)) {
+                            NavigationLink(destination: LogRecordView(hikeLog: log)) {
                                 VStack(alignment: .leading) {
                                     Text(log.title ?? "")
                                     Text(log.startDate ?? Date(), style: .date)

@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		B0099A1E2B434109007DDCD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0099A1D2B434109007DDCD2 /* Assets.xcassets */; };
 		B0931B5C2B40AB3500C53871 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0931B5B2B40AB3500C53871 /* PersistenceController.swift */; };
-		B0931B5E2B40B42900C53871 /* LogDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0931B5D2B40B42900C53871 /* LogDetailView.swift */; };
+		B0931B5E2B40B42900C53871 /* LogRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0931B5D2B40B42900C53871 /* LogRecordView.swift */; };
 		B0C273652B3CF1DB0060903F /* HikerLogixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273642B3CF1DB0060903F /* HikerLogixApp.swift */; };
-		B0C273672B3CF1DB0060903F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273662B3CF1DB0060903F /* ContentView.swift */; };
+		B0C273672B3CF1DB0060903F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273662B3CF1DB0060903F /* SplashView.swift */; };
 		B0C2736C2B3CF1DC0060903F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0C2736B2B3CF1DC0060903F /* Preview Assets.xcassets */; };
 		B0C273762B3CF1DC0060903F /* hikerlogixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273752B3CF1DC0060903F /* hikerlogixTests.swift */; };
 		B0C273802B3CF1DC0060903F /* hikerlogixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C2737F2B3CF1DC0060903F /* hikerlogixUITests.swift */; };
@@ -43,10 +43,10 @@
 /* Begin PBXFileReference section */
 		B0099A1D2B434109007DDCD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0931B5B2B40AB3500C53871 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		B0931B5D2B40B42900C53871 /* LogDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailView.swift; sourceTree = "<group>"; };
+		B0931B5D2B40B42900C53871 /* LogRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRecordView.swift; sourceTree = "<group>"; };
 		B0C273612B3CF1DB0060903F /* hikerlogix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hikerlogix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0C273642B3CF1DB0060903F /* HikerLogixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikerLogixApp.swift; sourceTree = "<group>"; };
-		B0C273662B3CF1DB0060903F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B0C273662B3CF1DB0060903F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		B0C2736B2B3CF1DC0060903F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B0C273712B3CF1DC0060903F /* hikerlogixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hikerlogixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0C273752B3CF1DC0060903F /* hikerlogixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hikerlogixTests.swift; sourceTree = "<group>"; };
@@ -109,10 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				B0C273642B3CF1DB0060903F /* HikerLogixApp.swift */,
-				B0C273662B3CF1DB0060903F /* ContentView.swift */,
+				B0C273662B3CF1DB0060903F /* SplashView.swift */,
 				B0C273902B3CF2EF0060903F /* DashboardView.swift */,
 				B0C273922B3CFCA40060903F /* LogFormView.swift */,
-				B0931B5D2B40B42900C53871 /* LogDetailView.swift */,
+				B0931B5D2B40B42900C53871 /* LogRecordView.swift */,
 				B0C273942B3CFDF20060903F /* PlanFormView.swift */,
 				B0C273962B406A690060903F /* PlanDataModel.swift */,
 				B0931B5B2B40AB3500C53871 /* PersistenceController.swift */,
@@ -278,10 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0C273672B3CF1DB0060903F /* ContentView.swift in Sources */,
+				B0C273672B3CF1DB0060903F /* SplashView.swift in Sources */,
 				B0C273952B3CFDF20060903F /* PlanFormView.swift in Sources */,
 				B0C2739F2B40A5C20060903F /* DataModel.xcdatamodeld in Sources */,
-				B0931B5E2B40B42900C53871 /* LogDetailView.swift in Sources */,
+				B0931B5E2B40B42900C53871 /* LogRecordView.swift in Sources */,
 				B0C273972B406A690060903F /* PlanDataModel.swift in Sources */,
 				B0C273932B3CFCA40060903F /* LogFormView.swift in Sources */,
 				B0C273912B3CF2EF0060903F /* DashboardView.swift in Sources */,

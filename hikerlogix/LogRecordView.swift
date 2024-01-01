@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HikeLogDetailView: View {
+struct LogRecordView: View {
     @Environment(\.managedObjectContext) private var viewContext
     var hikeLog: HikeLog
     
