@@ -39,7 +39,7 @@ struct SplashView: View {
                 }
             } else {
                 // Dashboard View
-                DashboardView()
+                ContentView()
             }
         }
     }
