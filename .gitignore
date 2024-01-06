@@ -94,3 +94,4 @@ fastlane/test_output
 
 iOSInjectionProject/
 hikerlogix.xcodeproj/project.xcworkspace/xcuserdata/ecorbett.xcuserdatad/UserInterfaceState.xcuserstate
+.vscode/settings.json
