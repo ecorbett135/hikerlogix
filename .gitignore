@@ -1,11 +1,12 @@
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-*/UserInterfaceState.xcuserstate
+/Users/ecorbett/Local/swift/hikerlogix/hikerlogix.xcodeproj/project.xcworkspace/xcuserdata/ecorbett.xcuserdatad/UserInterfaceState.xcuserstate
 
 
 ## User settings
 xcuserdata/
+xcuserdata/*
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
@@ -91,3 +92,4 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+hikerlogix.xcodeproj/project.xcworkspace/xcuserdata/ecorbett.xcuserdatad/UserInterfaceState.xcuserstate
