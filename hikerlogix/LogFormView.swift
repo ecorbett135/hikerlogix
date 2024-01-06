@@ -9,11 +9,10 @@ import SwiftUI
 
 struct HikeLogFormView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var showDashboard = true
     // Create vars for form inputs
     @State private var title: String = ""
     @State private var logEntry: String = ""
-    @State private var startLoc: String = ""
-    @State private var endLoc: String = ""
     @State private var startDate = Date()
     @State private var endDate = Date()
     @Binding var isPresented: Bool
@@ -39,8 +38,6 @@ struct HikeLogFormView: View {
                 TextField("Title", text: $title)
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 TextField("Initial Log Entry", text: $logEntry)
-                // TextField("Start Location", text: $startLoc)
-                // TextField("End Location", text: $endLoc)
                 
                 // Start Date Picker
                 DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
@@ -60,28 +57,28 @@ struct HikeLogFormView: View {
                 
                 // Button Actions
                 HStack {
-                    Button("Cancel") {
+                    Button("Cancel", action: {
+                        showDashboard = true
                         isPresented = false
-                    }
+                    })
                     .foregroundColor(.red)
                     
                     Spacer()
                     
                     Button("Save") {
-                        // Create the HikeLog only when Save is pressed
-                        let newLog = HikeLog(context: viewContext)
-                        newLog.id = UUID()
-                        newLog.title = title
-                        newLog.logEntry = "\(currentTimestamp): \(logEntry)"
-                        newLog.startDate = startDate
-                        // Set other properties as needed
-                        // ...
-                        
-                        // Save the context
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            print("Error saving context: \(error)")
+                        if !title.isEmpty || !logEntry.isEmpty {
+                            let newLog = HikeLog(context: viewContext)
+                            newLog.id = UUID()
+                            newLog.title = title
+                            newLog.logEntry = "\(currentTimestamp): \(logEntry)"
+                            newLog.startDate = startDate
+                            // Set other properties as needed
+
+                            do {
+                                try viewContext.save()
+                            } catch {
+                                print("Error saving context: \(error)")
+                            }
                         }
                         isPresented = false
                     }

@@ -36,14 +36,6 @@ struct LogRecordView: View {
                     .font(.headline)
                 Text(hikeLog.logEntry ?? "None")
                     .padding()
-
-
-
-                // Start and End Locations
-               // Text("Start Location: \(hikeLog.startLoc ?? "Unknown")")
-               //     .padding()
-                //Text("End Location: \(hikeLog.endLoc ?? "Unknown")")
-                 //   .padding()
             }
         }
         .background(
