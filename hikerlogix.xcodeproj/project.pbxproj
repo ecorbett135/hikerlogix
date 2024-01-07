@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B0099A1E2B434109007DDCD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0099A1D2B434109007DDCD2 /* Assets.xcassets */; };
 		B0099A202B441EE2007DDCD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0099A1F2B441EE2007DDCD2 /* ContentView.swift */; };
+		B0099A262B4AF9A1007DDCD2 /* LeaveNoTraceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0099A252B4AF9A1007DDCD2 /* LeaveNoTraceView.swift */; };
 		B0931B5C2B40AB3500C53871 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0931B5B2B40AB3500C53871 /* PersistenceController.swift */; };
 		B0931B5E2B40B42900C53871 /* LogRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0931B5D2B40B42900C53871 /* LogRecordView.swift */; };
 		B0C273652B3CF1DB0060903F /* HikerLogixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273642B3CF1DB0060903F /* HikerLogixApp.swift */; };
@@ -19,8 +20,6 @@
 		B0C273822B3CF1DC0060903F /* hikerlogixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273812B3CF1DC0060903F /* hikerlogixUITestsLaunchTests.swift */; };
 		B0C273912B3CF2EF0060903F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273902B3CF2EF0060903F /* DashboardView.swift */; };
 		B0C273932B3CFCA40060903F /* LogFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273922B3CFCA40060903F /* LogFormView.swift */; };
-		B0C273952B3CFDF20060903F /* PlanFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273942B3CFDF20060903F /* PlanFormView.swift */; };
-		B0C273972B406A690060903F /* PlanDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273962B406A690060903F /* PlanDataModel.swift */; };
 		B0C2739F2B40A5C20060903F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0C2739D2B40A5C20060903F /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +43,7 @@
 /* Begin PBXFileReference section */
 		B0099A1D2B434109007DDCD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0099A1F2B441EE2007DDCD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B0099A252B4AF9A1007DDCD2 /* LeaveNoTraceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveNoTraceView.swift; sourceTree = "<group>"; };
 		B0931B5B2B40AB3500C53871 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		B0931B5D2B40B42900C53871 /* LogRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRecordView.swift; sourceTree = "<group>"; };
 		B0C273612B3CF1DB0060903F /* hikerlogix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hikerlogix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,8 +57,6 @@
 		B0C273812B3CF1DC0060903F /* hikerlogixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hikerlogixUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B0C273902B3CF2EF0060903F /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		B0C273922B3CFCA40060903F /* LogFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFormView.swift; sourceTree = "<group>"; };
-		B0C273942B3CFDF20060903F /* PlanFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanFormView.swift; sourceTree = "<group>"; };
-		B0C273962B406A690060903F /* PlanDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataModel.swift; sourceTree = "<group>"; };
 		B0C2739E2B40A5C20060903F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,8 +114,7 @@
 				B0C273902B3CF2EF0060903F /* DashboardView.swift */,
 				B0C273922B3CFCA40060903F /* LogFormView.swift */,
 				B0931B5D2B40B42900C53871 /* LogRecordView.swift */,
-				B0C273942B3CFDF20060903F /* PlanFormView.swift */,
-				B0C273962B406A690060903F /* PlanDataModel.swift */,
+				B0099A252B4AF9A1007DDCD2 /* LeaveNoTraceView.swift */,
 				B0931B5B2B40AB3500C53871 /* PersistenceController.swift */,
 				B0C2739D2B40A5C20060903F /* DataModel.xcdatamodeld */,
 				B0099A1D2B434109007DDCD2 /* Assets.xcassets */,
@@ -282,13 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0C273672B3CF1DB0060903F /* SplashView.swift in Sources */,
-				B0C273952B3CFDF20060903F /* PlanFormView.swift in Sources */,
 				B0C2739F2B40A5C20060903F /* DataModel.xcdatamodeld in Sources */,
 				B0931B5E2B40B42900C53871 /* LogRecordView.swift in Sources */,
-				B0C273972B406A690060903F /* PlanDataModel.swift in Sources */,
 				B0C273932B3CFCA40060903F /* LogFormView.swift in Sources */,
 				B0099A202B441EE2007DDCD2 /* ContentView.swift in Sources */,
 				B0C273912B3CF2EF0060903F /* DashboardView.swift in Sources */,
+				B0099A262B4AF9A1007DDCD2 /* LeaveNoTraceView.swift in Sources */,
 				B0C273652B3CF1DB0060903F /* HikerLogixApp.swift in Sources */,
 				B0931B5C2B40AB3500C53871 /* PersistenceController.swift in Sources */,
 			);
