@@ -13,7 +13,6 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             if showSplash {
-                // Splash Screen Content
                 GeometryReader { geometry in
                     VStack {
                         Image("logixLogoNoBorder")
@@ -38,7 +37,6 @@ struct SplashView: View {
                     }
                 }
             } else {
-                // Dashboard View
                 ContentView()
             }
         }
