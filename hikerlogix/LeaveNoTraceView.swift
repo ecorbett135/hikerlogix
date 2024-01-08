@@ -16,7 +16,7 @@ struct LeaveNoTraceView: View {
                     .bold()
             }
             VStack(alignment: .leading, spacing: 10) {
-                Link("Referecence: NPS Leave No Trace", destination: URL(string: "https://www.nps.gov/articles/leave-no-trace-seven-principles.htm")!)
+                Link("Attribution: NPS Leave No Trace", destination: URL(string: "https://www.nps.gov/articles/leave-no-trace-seven-principles.htm")!)
                     .foregroundColor(.blue)
                 
        
