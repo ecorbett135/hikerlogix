@@ -10,7 +10,7 @@ import CoreData
 
 struct DashboardView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \HikeLog.startDate, ascending: true)], animation: .default)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \HikeLog.startDate, ascending: false)], animation: .default)
     private var hikeLogs: FetchedResults<HikeLog>
     
     @State private var showHikeLogForm = false
@@ -18,7 +18,6 @@ struct DashboardView: View {
     @State private var showContentView = false
 
     var body: some View {
-        NavigationView {
             VStack {
                 List {
                     HikeSection(title: "Recent Hikes", hikes: hikeLogs)
@@ -37,8 +36,6 @@ struct DashboardView: View {
                 ContentView()
             }
         }
-        .padding()
-    }
 
     private var BackgroundImage: some View {
         Image("mainScreen")
@@ -62,12 +59,26 @@ struct DashboardView: View {
     private var MenuButtons: some View {
         HStack {
             Spacer()
-            MenuButton(imageName: "menucard", text: "Menu") { showContentView = true }
+            MenuNavigationLink(imageName: "gear", text: "Gear", destination: GearView())
+            
             Spacer()
-            MenuButton(imageName: "gear", text: "Gear") { showContentView = true }
+            MenuNavigationLink(imageName: "fork.knife", text: "Bear Can", destination: GearView())
+            
             Spacer()
-            MenuButton(imageName: "fork.knife", text: "Bear Can") { showContentView = true }
-            Spacer()
+            // Next Link Here
+        }
+        .padding()
+    }
+
+    private func MenuNavigationLink<Destination: View>(imageName: String, text: String, destination: Destination) -> some View {
+        NavigationLink(destination: destination) {
+            Image(systemName: imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30, height: 30)
+                .foregroundColor(.black)
+            Text(text)
+                .foregroundColor(.black)
         }
     }
 
@@ -82,6 +93,7 @@ struct DashboardView: View {
         Button(title) {
             showingForm.wrappedValue = true
         }
+        .bold()
         .padding()
         .sheet(isPresented: $showHikeLogForm) {
             HikeLogFormView(isPresented: $showHikeLogForm, onSave: { newLog in

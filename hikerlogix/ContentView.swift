@@ -8,65 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showDashboard = false
     @State private var showLeaveNoTrace = false
 
     var body: some View {
-        ZStack {
-            BackgroundImage
-            MenuContent
+        NavigationView {
+            ZStack {
+                BackgroundImage
+                MenuContent
+            }
+            .navigationBarTitle("Main Menu", displayMode: .inline)
         }
     }
 
     private var MenuContent: some View {
         VStack(spacing: 20) {
-            // Menu Description
-            Text("Main Menu")
-                .font(.largeTitle)
-                .bold()
-                .padding() // Add padding around the text
-
-            MenuButton(imageName: "gauge.open.with.lines.needle.33percent", text: "Dashboard") {
-                showDashboard = true
-            }
-            .sheet(isPresented: $showDashboard) {
-                DashboardView()
-            }
-
-            MenuButton(imageName: "figure.hiking", text: "Leave No Trace") {
-                showLeaveNoTrace = true
-            }
-            .sheet(isPresented: $showLeaveNoTrace) {
-                LeaveNoTraceView()
-            }
-
-            MenuButton(imageName: "gear", text: "Gear Locker") {
-                showLeaveNoTrace = true
-            }
-            .sheet(isPresented: $showLeaveNoTrace) {
-                LeaveNoTraceView()
-            }
             
-            MenuButton(imageName: "fork.knife", text: "Bear Can") {
-                showLeaveNoTrace = true
-            }
-            .sheet(isPresented: $showLeaveNoTrace) {
-                LeaveNoTraceView()
-            }
+            MenuNavigationLink( imageName: "gauge.open.with.lines.needle.33percent", text: "Log Dashbord", destination: DashboardView())
             
-            MenuButton(imageName: "cloud.sun", text: "Weather") {
-                showLeaveNoTrace = true
-            }
-            .sheet(isPresented: $showLeaveNoTrace) {
-                LeaveNoTraceView()
-            }
+            MenuNavigationLink(imageName: "figure.hiking", text: "Leave No Trace", destination: LeaveNoTraceView())
+
+            MenuNavigationLink(imageName: "gear", text: "Gear Locker", destination: ComingSoonView())
             
-            MenuButton(imageName: "questionmark.circle", text: "App Info") {
-                showLeaveNoTrace = true
-            }
-            .sheet(isPresented: $showLeaveNoTrace) {
-                LeaveNoTraceView()
-            }
+            MenuNavigationLink(imageName: "fork.knife", text: "Bear Can", destination: ComingSoonView())
+            
+            MenuNavigationLink(imageName: "cloud.sun", text: "Weather", destination: ComingSoonView())
+            
+            MenuNavigationLink(imageName: "questionmark.circle", text: "App Info", destination: ComingSoonView())
             // ADD FUTURE BUTTONS HERE
         }
         .padding()
@@ -81,13 +48,13 @@ struct ContentView: View {
             .zIndex(-1)
     }
 
-    private func MenuButton(imageName: String, text: String, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
+    private func MenuNavigationLink<Destination: View>(imageName: String, text: String, destination: Destination) -> some View {
+        NavigationLink(destination: destination) {
             HStack {
                 Image(systemName: imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 25, height: 25)
+                    .frame(width: 40, height: 40)
                     .foregroundColor(.black)
                 Text(text)
                     .foregroundColor(.black)
@@ -95,6 +62,7 @@ struct ContentView: View {
         }
         .padding()
     }
+    // Add New Funtions Here
 }
 
 struct ContentView_Previews: PreviewProvider {
