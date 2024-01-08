@@ -10,20 +10,32 @@ import SwiftUI
 struct LeaveNoTraceView: View {
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .center) {
                 Text("Leave No Trace")
                     .font(.largeTitle)
                     .bold()
-                    .multilineTextAlignment(.center)
-                    .padding()
-
+            }
+            VStack(alignment: .leading, spacing: 10) {
+                Link("Referecence: NPS Leave No Trace", destination: URL(string: "https://www.nps.gov/articles/leave-no-trace-seven-principles.htm")!)
+                    .foregroundColor(.blue)
+                
+       
                 Text("""
                      The Leave No Trace principles are guidelines to reduce the environmental impact while enjoying natural spaces. They are:
                      """)
-                
-                Text("1. Plan Ahead and Prepare")
-                    .bold()
                     .font(.subheadline)
+                    .padding()
+                
+                HStack {
+                Image(systemName: "checklist.checked")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(.black)
+                    Text("1. Plan Ahead and Prepare")
+                        .bold()
+                        .font(.subheadline)
+                }
                 
                 Text("""
                      • Know the regulations and special concerns of the area.
@@ -97,9 +109,6 @@ struct LeaveNoTraceView: View {
                      """)
                     .padding([.bottom, .horizontal])
                     .font(.subheadline)
-
-                Link("Learn more about Leave No Trace Principles", destination: URL(string: "https://www.nps.gov/articles/leave-no-trace-seven-principles.htm")!)
-                    .foregroundColor(.blue)
             }
             .padding()
         }
