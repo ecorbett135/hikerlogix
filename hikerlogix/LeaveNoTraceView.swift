@@ -11,13 +11,13 @@ struct LeaveNoTraceView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .center) {
-                Text("Leave No Trace")
+                Text("LNT")
                     .font(.largeTitle)
                     .bold()
-            }
-            VStack(alignment: .leading, spacing: 10) {
                 Link("Attribution: NPS Leave No Trace", destination: URL(string: "https://www.nps.gov/articles/leave-no-trace-seven-principles.htm")!)
                     .foregroundColor(.blue)
+            }
+            VStack(alignment: .leading, spacing: 10) {
                 
        
                 Text("""
@@ -30,7 +30,7 @@ struct LeaveNoTraceView: View {
                 Image(systemName: "checklist.checked")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 15, height: 15)
+                        .frame(width: 20, height: 20)
                         .foregroundColor(.black)
                     Text("1. Plan Ahead and Prepare")
                         .bold()
@@ -45,64 +45,107 @@ struct LeaveNoTraceView: View {
                      • Use maps and compasses to reduce marking.
                      """)
                     .font(.subheadline)
+                    .padding()
                 
+                HStack {
+                Image(systemName: "road.lanes")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.black)
                 Text("2. Travel and Camp on Durable Surfaces")
-                    .bold()
-                    .font(.subheadline)
-                
+                        .bold()
+                        .font(.subheadline)
+                }
                 Text("""
                      • Use maintained trails and designated campsites.
                      • Protect riparian areas by camping at least 200 feet from water sources.
                      • Concentrate use in popular areas and disperse in pristine ones.
                      """)
-                    .font(.subheadline)
+                .font(.subheadline)
+                    .padding()
 
-                Text("3. Dispose of Waste Properly")
-                    .bold()
-                    .font(.subheadline)
                 
+                HStack {
+                    Image(systemName: "trash")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.black)
+                    Text("3. Dispose of Waste Properly")
+                        .bold()
+                        .font(.subheadline)
+                }
                 Text("""
                      • Pack out all trash and leftover food.
                      • Utilize toilet facilities or catholes for human waste.
                      • Pack out toilet paper and hygiene products.
                      """)
                     .font(.subheadline)
+                    .padding()
                 
-                Text("4. Leave What You Find")
-                    .bold()
-                    .font(.subheadline)
-                
+                HStack {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.black)
+                    Text("4. Leave What You Find")
+                        .bold()
+                        .font(.subheadline)
+                }
                 Text("""
                      • Preserve historical structures and artifacts.
                      • Leave natural objects as found and avoid transporting species.
                      """)
                     .font(.subheadline)
-
-                Text("5. Minimize Campfire Impacts")
-                    .bold()
-                    .font(.subheadline)
+                    .padding()
                 
+                HStack {
+                    Image(systemName: "flame")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.black)
+                    Text("5. Minimize Campfire Impacts")
+                        .bold()
+                        .font(.subheadline)
+                }
                 Text("""
                      • Use lightweight stoves and candle lanterns.
                      • Keep fires small and use established fire rings.
                      """)
                     .font(.subheadline)
+                    .padding()
 
-                Text("6. Respect Wildlife")
-                    .bold()
-                    .font(.subheadline)
-                
+                HStack {
+                    Image(systemName: "lizard")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.black)
+                    Text("6. Respect Wildlife")
+                        .bold()
+                        .font(.subheadline)
+                }
                 Text("""
                      • Observe wildlife from a distance and never feed them.
                      • Store food and trash securely.
                      • Avoid wildlife during sensitive times.
                      """)
                     .font(.subheadline)
+                    .padding()
                 
-                Text("7. Be Considerate of Other Visitors")
-                    .bold()
-                    .font(.subheadline)
-                
+                HStack {
+                    Image(systemName: "figure.2")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.black)
+                    Text("7. Be Considerate of Other Visitors")
+                        .bold()
+                        .font(.subheadline)
+                }
                 Text("""
                      • Respect others and yield to other trail users.
                      • Keep noise levels down and camp away from trails.
