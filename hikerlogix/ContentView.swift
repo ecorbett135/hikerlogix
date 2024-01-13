@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showLeaveNoTrace = false
+    @State private var showModal: Bool = false
+    @State private var selectedView: AnyView?
 
     var body: some View {
         NavigationView {
@@ -18,22 +19,23 @@ struct ContentView: View {
             }
             .navigationBarTitle("Main Menu", displayMode: .inline)
         }
+        .sheet(isPresented: $showModal) {
+            selectedView
+        }
+        .onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            }
+        }
     }
 
     private var MenuContent: some View {
         VStack(spacing: 20) {
-            
-            MenuNavigationLink( imageName: "gauge.open.with.lines.needle.33percent", text: "Log Dashbord", destination: DashboardView())
-            
-            MenuNavigationLink(imageName: "figure.hiking", text: "Leave No Trace", destination: LeaveNoTraceView())
-
-            MenuNavigationLink(imageName: "gear", text: "Gear Locker", destination: ComingSoonView())
-            
-            MenuNavigationLink(imageName: "fork.knife", text: "Bear Can", destination: ComingSoonView())
-            
-            MenuNavigationLink(imageName: "cloud.sun", text: "Weather", destination: ComingSoonView())
-            
-            MenuNavigationLink(imageName: "questionmark.circle", text: "App Info", destination: ComingSoonView())
+            MenuNavigationLink(imageName: "gauge.open.with.lines.needle.33percent", text: "Log Dashboard", destination: DashboardView())
+            MenuNavigationLink(imageName: "figure.hiking", text: "Leave No Trace", destination: AnyView(LeaveNoTraceView()))
+            MenuNavigationLink(imageName: "gear", text: "Gear Locker", destination: AnyView(ComingSoonView()))
+            MenuNavigationLink(imageName: "fork.knife", text: "Bear Can", destination: AnyView(ComingSoonView()))
+            MenuNavigationLink(imageName: "cloud.sun", text: "Weather", destination: AnyView(ComingSoonView()))
+            MenuNavigationLink(imageName: "questionmark.circle", text: "App Info", destination: AnyView(ComingSoonView()))
             // ADD FUTURE BUTTONS HERE
         }
         .padding()
@@ -47,22 +49,6 @@ struct ContentView: View {
             .opacity(0.3)
             .zIndex(-1)
     }
-
-    private func MenuNavigationLink<Destination: View>(imageName: String, text: String, destination: Destination) -> some View {
-        NavigationLink(destination: destination) {
-            HStack {
-                Image(systemName: imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 40)
-                    .foregroundColor(.black)
-                Text(text)
-                    .foregroundColor(.black)
-            }
-        }
-        .padding()
-    }
-    // Add New Funtions Here
 }
 
 struct ContentView_Previews: PreviewProvider {

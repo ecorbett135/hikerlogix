@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ComingSoonView: View {
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Content Coming Soon!")
-                .font(.title)
-                .padding()
+        NavigationView {
+            VStack(spacing: 20) {
+                Text("Content Coming Soon!")
+                    .font(.title)
+                    .padding()
+            }
         }
     }
 }

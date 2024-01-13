@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SplashView: View {
     @State private var showSplash = true
-    private let splashDisplayDuration = 3.0 // Duration to display the splash screen
+    private let splashDisplayDuration = 3.0
 
     var body: some View {
-        ZStack {
-            if showSplash {
+        ContentView()
+            .fullScreenCover(isPresented: $showSplash) {
                 splashScreen
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + splashDisplayDuration) {
@@ -22,10 +22,7 @@ struct SplashView: View {
                             }
                         }
                     }
-            } else {
-                ContentView()
             }
-        }
     }
 
     private var splashScreen: some View {

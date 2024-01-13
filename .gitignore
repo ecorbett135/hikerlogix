@@ -1,4 +1,4 @@
-# Xcode
+
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 #/Users/ecorbett/Local/swift/hikerlogix/hikerlogix.xcodeproj/project.xcworkspace/xcuserdata/ecorbett.xcuserdatad/UserInterfaceState.xcuserstate
@@ -73,7 +73,9 @@ Carthage/Build/
 
 # Accio dependency management
 Dependencies/
+.DS_Store
 .accio/
+*/.DS_Store
 
 # fastlane
 #

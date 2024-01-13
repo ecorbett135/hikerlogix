@@ -11,31 +11,23 @@ import CoreData
 struct DashboardView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \HikeLog.startDate, ascending: false)], animation: .default)
-    private var hikeLogs: FetchedResults<HikeLog>
+    private var logEntry: FetchedResults<HikeLog>
     
     @State private var showHikeLogForm = false
-    @State private var showHikePlanForm = false
     @State private var showContentView = false
 
     var body: some View {
             VStack {
                 List {
-                    HikeSection(title: "Recent Hikes", hikes: hikeLogs)
-                    // Add upcoming hikes section if you have data for it
+                    HikeSection(title: "Recent Hikes", hikes: logEntry)
                 }
-
                 MenuButtons
-                
-                NewHikeButtons
-
+                NewLogEntry
                 Spacer()
             }
-            .navigationBarTitle("Dashboard", displayMode: .inline)
             .background(BackgroundImage)
-            .sheet(isPresented: $showContentView) {
-                ContentView()
-            }
         }
+    
 
     private var BackgroundImage: some View {
         Image("mainScreen")
@@ -44,52 +36,25 @@ struct DashboardView: View {
             .opacity(0.3)
     }
 
-    private func MenuButton(imageName: String, text: String, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            HStack {
-                Image(systemName: imageName)
-                    .foregroundColor(.black)
-                Text(text)
-                    .foregroundColor(.black)
-            }
-        }
-        .padding()
-    }
-
     private var MenuButtons: some View {
         HStack {
             Spacer()
             MenuNavigationLink(imageName: "gear", text: "Gear", destination: GearView())
-            
             Spacer()
             MenuNavigationLink(imageName: "fork.knife", text: "Bear Can", destination: GearView())
-            
             Spacer()
-            // Next Link Here
         }
         .padding()
     }
 
-    private func MenuNavigationLink<Destination: View>(imageName: String, text: String, destination: Destination) -> some View {
-        NavigationLink(destination: destination) {
-            Image(systemName: imageName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 30, height: 30)
-                .foregroundColor(.black)
-            Text(text)
-                .foregroundColor(.black)
-        }
-    }
-
-    private var NewHikeButtons: some View {
+    private var NewLogEntry: some View {
         HStack {
-            NewHikeButton(title: "New Hike Log", showingForm: $showHikeLogForm)
+            NewLogEntry(title: "Create New Log", showingForm: $showHikeLogForm)
             // Add buttons for future functionality
         }
     }
 
-    private func NewHikeButton(title: String, showingForm: Binding<Bool>) -> some View {
+    private func NewLogEntry(title: String, showingForm: Binding<Bool>) -> some View {
         Button(title) {
             showingForm.wrappedValue = true
         }
