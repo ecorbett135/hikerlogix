@@ -30,8 +30,14 @@ struct HikeLogFormView: View {
     }
     
     private func saveHikeLog() {
-        let logRecord = logRecord ?? LogRecords(context: viewContext)
-        if logRecord.title == nil {
+        // This condition ensures we don't create a new record when fields are empty
+        guard !title.isEmpty || !logEntry.isEmpty else {
+            isPresented = false
+            return
+        }
+
+        let logRecord = self.logRecord ?? LogRecords(context: viewContext)
+        if self.logRecord == nil {
             // Only set these properties if it's a new record
             logRecord.id = UUID()
             logRecord.title = title
@@ -40,19 +46,19 @@ struct HikeLogFormView: View {
         }
 
         let newEntry = LogEntry(context: viewContext)
-        newEntry.logEntry = logEntry // Text of the log entry
-        newEntry.date = Date() // Date of the log entry
-        newEntry.logRecord = logRecord // Associate with LogRecords
+        newEntry.logEntry = logEntry
+        newEntry.date = Date()
+        newEntry.logRecord = logRecord
 
         do {
             try viewContext.save()
             onSave?(logRecord)
         } catch {
-            // Handle the error
             print("Error saving context: \(error)")
         }
         isPresented = false
     }
+
 
     var body: some View {
         NavigationView {
@@ -77,6 +83,7 @@ struct HikeLogFormView: View {
                 HStack {
                     Button("Cancel") {
                         isPresented = false
+                        viewContext.rollback() // Discard any unsaved changes
                     }
                     .foregroundColor(.red)
                     
