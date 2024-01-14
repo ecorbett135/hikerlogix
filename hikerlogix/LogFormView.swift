@@ -58,7 +58,7 @@ struct HikeLogFormView: View {
         NavigationView {
             Form {
                 TextField("Title", text: titleBinding)
-                TextField("Initial Log Entry", text: $logEntry)
+                TextField("New Log Entry", text: $logEntry)
                 DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
                 DatePicker("End Date", selection: $endDate, displayedComponents: .date)
                 
@@ -87,7 +87,7 @@ struct HikeLogFormView: View {
                     }
                 }
             }
-            .navigationBarTitle("New Hike Log", displayMode: .inline)
+            .navigationBarTitle("New Log Entry", displayMode: .inline)
         }
     }
 }

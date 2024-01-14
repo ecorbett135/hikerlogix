@@ -17,7 +17,7 @@ struct LeaveNoTraceView: View {
             • Use maps and compasses to reduce marking.
             """),
         ("road.lanes", "2. Travel and Camp on Durable Surfaces", """
-            • Use maintained trails and designated campsites.
+            • Use maintained trails & designated campsites.
             • Protect riparian areas by camping at least 200 feet from water sources.
             • Concentrate use in popular areas and disperse in pristine ones.
             """),

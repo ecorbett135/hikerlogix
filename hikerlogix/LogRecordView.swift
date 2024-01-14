@@ -9,7 +9,9 @@ import SwiftUI
 
 struct LogRecordView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    var hikeLog: LogRecords
+    @ObservedObject var hikeLog: LogRecords // Make this an ObservedObject
+    
+    // var hikeLog: LogRecords
     
     @State private var showingAddLogEntryForm = false
 
@@ -36,8 +38,17 @@ struct LogRecordView: View {
                     // Log Entry Label and Text
                     Text("Log Entries")
                         .font(.headline)
-                    ForEach(hikeLog.logEntriesArray, id: \.self) {
-                        logEntry in Text(logEntry.logEntry ?? "No Entry")
+                    Spacer()
+                    ForEach(hikeLog.logEntriesArray, id: \.self) { logEntry in
+                        VStack(alignment: .leading) {
+                            if let entryDate = logEntry.date {
+                                Text("\(entryDate, formatter: dateTimeFormatter)")
+                                    .bold()
+                            }
+                            Text(logEntry.logEntry ?? "No Entry")
+                                .padding(.horizontal)
+                            Spacer()
+                        }
                     }
                 }
             }
@@ -51,26 +62,25 @@ struct LogRecordView: View {
             
             HStack{
                 
+                Button(action: deleteHikeLog) {
+                    Image(systemName: "trash.fill")
+                        .imageScale(.large)
+                        .font(.system(size: 22))
+                        .foregroundColor(.red)
+                        .padding()
+                }
+                Spacer()
                 Button(action: { showingAddLogEntryForm = true }) {
-                    Image(systemName: "plusi.circle")
+                    Image(systemName: "plus.circle")
+                        .imageScale(.large)
+                        .font(.system(size: 30))
                         .foregroundColor(.blue)
-                        .frame(width: 150, height: 150)
+                        .padding()
                 }
                 .sheet(isPresented: $showingAddLogEntryForm) {
                     HikeLogFormView(isPresented: $showingAddLogEntryForm, onSave: { _ in
                         // Handle the updated log as needed
                     }, logRecord: hikeLog)
-                }
-                .alignmentGuide(.trailing) { d in d[.trailing] }
-                .alignmentGuide(.bottom) { d in d[.bottom] }
-                
-                Spacer()
-                
-                Button(action: deleteHikeLog) {
-                    Image(systemName: "trash.fill")
-                        .foregroundColor(.red)
-                        .padding()
-                        .background(Circle().fill(Color.white))
                 }
                 .padding([.leading, .bottom, .trailing]) // Add padding to position the HStack
             }
@@ -88,9 +98,15 @@ struct LogRecordView: View {
     }
 }
 
-// Short date formatter
 private let shortDateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "MM/dd/yyyy"
+    return formatter
+}()
+
+private let dateTimeFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    formatter.timeStyle = .short
     return formatter
 }()
