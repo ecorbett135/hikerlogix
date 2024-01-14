@@ -13,6 +13,7 @@
 		B0099A2A2B4B87AD007DDCD2 /* CommingSoonVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0099A292B4B87AD007DDCD2 /* CommingSoonVIew.swift */; };
 		B0099A2C2B4D6C24007DDCD2 /* LeaveNoTraceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0099A2B2B4D6C24007DDCD2 /* LeaveNoTraceView.swift */; };
 		B0099A2E2B5001C9007DDCD2 /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0099A2D2B5001C9007DDCD2 /* SharedView.swift */; };
+		B03A8F3D2B5331AD00190E58 /* LogRecordExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A8F3C2B5331AD00190E58 /* LogRecordExtension.swift */; };
 		B0931B5C2B40AB3500C53871 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0931B5B2B40AB3500C53871 /* PersistenceController.swift */; };
 		B0931B5E2B40B42900C53871 /* LogRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0931B5D2B40B42900C53871 /* LogRecordView.swift */; };
 		B0C273652B3CF1DB0060903F /* HikerLogixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C273642B3CF1DB0060903F /* HikerLogixApp.swift */; };
@@ -50,6 +51,7 @@
 		B0099A292B4B87AD007DDCD2 /* CommingSoonVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommingSoonVIew.swift; sourceTree = "<group>"; };
 		B0099A2B2B4D6C24007DDCD2 /* LeaveNoTraceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveNoTraceView.swift; sourceTree = "<group>"; };
 		B0099A2D2B5001C9007DDCD2 /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
+		B03A8F3C2B5331AD00190E58 /* LogRecordExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRecordExtension.swift; sourceTree = "<group>"; };
 		B0931B5B2B40AB3500C53871 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		B0931B5D2B40B42900C53871 /* LogRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRecordView.swift; sourceTree = "<group>"; };
 		B0C273612B3CF1DB0060903F /* hikerlogix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hikerlogix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				B0931B5B2B40AB3500C53871 /* PersistenceController.swift */,
 				B0099A292B4B87AD007DDCD2 /* CommingSoonVIew.swift */,
 				B0C2739D2B40A5C20060903F /* DataModel.xcdatamodeld */,
+				B03A8F3C2B5331AD00190E58 /* LogRecordExtension.swift */,
 				B0099A1D2B434109007DDCD2 /* Assets.xcassets */,
 				B0C2736A2B3CF1DC0060903F /* Preview Content */,
 			);
@@ -295,6 +298,7 @@
 				B0099A202B441EE2007DDCD2 /* ContentView.swift in Sources */,
 				B0099A2C2B4D6C24007DDCD2 /* LeaveNoTraceView.swift in Sources */,
 				B0C273912B3CF2EF0060903F /* DashboardView.swift in Sources */,
+				B03A8F3D2B5331AD00190E58 /* LogRecordExtension.swift in Sources */,
 				B0099A2A2B4B87AD007DDCD2 /* CommingSoonVIew.swift in Sources */,
 				B0099A2E2B5001C9007DDCD2 /* SharedView.swift in Sources */,
 				B0C273652B3CF1DB0060903F /* HikerLogixApp.swift in Sources */,

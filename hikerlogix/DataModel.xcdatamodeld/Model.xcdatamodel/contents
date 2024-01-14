@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
-    <entity name="HikeLog" representedClassName="HikeLog" syncable="YES" codeGenerationType="class">
+    <entity name="LogEntry" representedClassName="LogEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="logEntry" optional="YES" attributeType="String"/>
+        <attribute name="subID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="logRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LogRecords" inverseName="logEntries" inverseEntity="LogRecords"/>
+    </entity>
+    <entity name="LogRecords" representedClassName="LogRecords" syncable="YES" codeGenerationType="class">
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="logEntry" optional="YES" attributeType="String"/>
+        <attribute name="logs" optional="YES" attributeType="String"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="logEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LogEntry" inverseName="logRecord" inverseEntity="LogEntry"/>
     </entity>
 </model>

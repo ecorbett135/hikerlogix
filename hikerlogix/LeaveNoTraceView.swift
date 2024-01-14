@@ -53,7 +53,7 @@ struct LeaveNoTraceView: View {
                     Text("LNT")
                         .font(.largeTitle)
                         .bold()
-                    Link("Attribution: NPS Leave No Trace", destination: URL(string: "https://www.nps.gov/articles/leave-no-trace-seven-principles.htm")!)
+                    Link("More Info: NPS Leave No Trace", destination: URL(string: "https://www.nps.gov/articles/leave-no-trace-seven-principles.htm")!)
                         .foregroundColor(.blue)
                     
                     ForEach(principles, id: \.1) { (icon, title, description) in

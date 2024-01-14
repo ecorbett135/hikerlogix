@@ -10,10 +10,10 @@ import CoreData
 
 struct DashboardView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \HikeLog.startDate, ascending: false)], animation: .default)
-    private var logEntry: FetchedResults<HikeLog>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \LogRecords.startDate, ascending: false)], animation: .default)
+    private var logEntry: FetchedResults<LogRecords>
     
-    @State private var showHikeLogForm = false
+    @State private var showLogRecordsForm = false
     @State private var showContentView = false
 
     var body: some View {
@@ -49,7 +49,7 @@ struct DashboardView: View {
 
     private var NewLogEntry: some View {
         HStack {
-            NewLogEntry(title: "Create New Log", showingForm: $showHikeLogForm)
+            NewLogEntry(title: "Create New Log", showingForm: $showLogRecordsForm)
             // Add buttons for future functionality
         }
     }
@@ -60,8 +60,8 @@ struct DashboardView: View {
         }
         .bold()
         .padding()
-        .sheet(isPresented: $showHikeLogForm) {
-            HikeLogFormView(isPresented: $showHikeLogForm, onSave: { newLog in
+        .sheet(isPresented: $showLogRecordsForm) {
+            HikeLogFormView(isPresented: $showLogRecordsForm, onSave: { newLog in
                 // Handle the new log as needed
             })
         }
@@ -71,7 +71,7 @@ struct DashboardView: View {
 // Assuming you have a HikeSection view
 struct HikeSection: View {
     let title: String
-    let hikes: FetchedResults<HikeLog>
+    let hikes: FetchedResults<LogRecords>
 
     var body: some View {
         Section(header: Text(title)) {

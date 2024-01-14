@@ -17,13 +17,47 @@ struct HikeLogFormView: View {
     @State private var startDate = Date()
     @State private var endDate = Date()
     
-    // onSave action
-    var onSave: ((HikeLog) -> Void)?
     
+    // onSave action
+    var onSave: ((LogRecords) -> Void)?
+    var logRecord: LogRecords?
+    
+    private var titleBinding: Binding<String> {
+        Binding<String>(
+            get: { self.title.isEmpty ? self.logRecord?.title ?? "" : self.title },
+            set: { self.title = $0 }
+        )
+    }
+    
+    private func saveHikeLog() {
+        let logRecord = logRecord ?? LogRecords(context: viewContext)
+        if logRecord.title == nil {
+            // Only set these properties if it's a new record
+            logRecord.id = UUID()
+            logRecord.title = title
+            logRecord.startDate = startDate
+            logRecord.endDate = endDate
+        }
+
+        let newEntry = LogEntry(context: viewContext)
+        newEntry.logEntry = logEntry // Text of the log entry
+        newEntry.date = Date() // Date of the log entry
+        newEntry.logRecord = logRecord // Associate with LogRecords
+
+        do {
+            try viewContext.save()
+            onSave?(logRecord)
+        } catch {
+            // Handle the error
+            print("Error saving context: \(error)")
+        }
+        isPresented = false
+    }
+
     var body: some View {
         NavigationView {
             Form {
-                TextField("Title", text: $title)
+                TextField("Title", text: titleBinding)
                 TextField("Initial Log Entry", text: $logEntry)
                 DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
                 DatePicker("End Date", selection: $endDate, displayedComponents: .date)
@@ -56,26 +90,6 @@ struct HikeLogFormView: View {
             .navigationBarTitle("New Hike Log", displayMode: .inline)
         }
     }
-
-    private func saveHikeLog() {
-        if !title.isEmpty || !logEntry.isEmpty {
-            let newLog = HikeLog(context: viewContext)
-            newLog.id = UUID()
-            newLog.title = title
-            newLog.logEntry = "\(DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)): \(logEntry)"
-            newLog.startDate = startDate
-            // Set other properties as needed
-
-            do {
-                try viewContext.save()
-                onSave?(newLog)
-            } catch {
-                // Provide user feedback for the error
-                print("Error saving context: \(error)")
-            }
-        } else {
-            // Provide user feedback for validation failure
-        }
-        isPresented = false
-    }
 }
+ 
+
